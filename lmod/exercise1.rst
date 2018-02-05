@@ -1,6 +1,8 @@
 Exercise 1
 ==========
 
+Approx Time: 7 mins
+
 View module all modules in system
 
 .. code::

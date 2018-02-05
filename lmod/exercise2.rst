@@ -112,7 +112,7 @@ To restore a collection in your user shell use ``ml restore <collection-name>``
         ml
 
 
-Searching for modules with ``module spider``
+Searching for modules with module spider
 --------------------------------------------
 
 
@@ -137,6 +137,12 @@ To view a specific module version
 
    module spider GCC/5.4.0-2.27
 
+Hidden Modules
+--------------
+
+Hidden modules in Lmod are precedded by a "." follwed by the name of module. Lmod
+treats these modules hidden when you run ``module av``. Hidden modules can be 
+useful to hide modules that you don't want to see 
 
 To view hidden modules with ``module av``
 
@@ -152,6 +158,38 @@ To view hidden modules with ``module spider``
         ml spider --show-hidden flex
 
 
+
+To view Lmod configuration
+
+.. code::
+
+   module --config
+
+
+Try this
+
+.. code::
+
+   echo $MODULEPATH
+   unset MODULEPATH
+   module av
+   echo $MODULEPATH
+
+
+MODULEPATH stores a set of module trees that is used by ``module`` command to view
+all module trees. There is a default MODULEPATH called ``LMOD_DEFAULT_MODULEPATH``
+
+.. code::
+
+   echo $LMOD_DEFAULT_MODULEPATH
+ 
+Recover your MODULEPATH 
+
+.. code::
+
+   export MODULEPATH=$LMOD_DEFAULT_MODULEPATH
+
+If LMOD_DEFAULT_MODULEPATH is messed up then run ``source /etc/profile``
 
 
 
