@@ -1,13 +1,18 @@
 Exercise 1
 ==========
 
-First set your MODULEPATH to the following module tree
+View module all modules in system
 
 .. code::
 
-	export MODULEPATH=$ROOT/modules/ex1:$MODULEPATH
+        module av
 
-Run ``ml av`` to see the new module tree
+Search for a module gcc
+
+.. code::
+
+        module av gcc
+
 
 Try loading a module
 
@@ -15,6 +20,7 @@ Try loading a module
 
 	module purge
 	module load intel
+        module list
 
 Try loading modules 
 
@@ -23,6 +29,7 @@ Try loading modules
 	module purge
 	module load Go 
 	module load Anaconda2
+        module list
 
 Try loading same two modules in one line
 
@@ -30,6 +37,8 @@ Try loading same two modules in one line
 
 	module purge
 	module load Go Anaconda2
+        module list
+
 
 Try swaping one module with another
 
@@ -37,7 +46,23 @@ Try swaping one module with another
 
 	module purge
 	module load Go Anaconda2
+        module list
 	module swap Go Inspector
+        module list
+
+
+Swap with ``sw`` and ``switch``
+
+.. code::
+
+        module purge
+        module load Go Anaconda2
+        module sw Go Inspector
+        module list
+        module switch Inspector Go
+        module list
+
+
 
 Try loading a module and unload another
 
@@ -46,7 +71,11 @@ Try loading a module and unload another
 	module purge
 	module load Go Inspector
 	module load intel
+        module list
 	module unload Inspector
+        module list
+
+
 
 Try loading intel and Inspector in the same line
 
@@ -63,6 +92,7 @@ You should get an error, try this
 	module purge
 	module load intel Inspector
 	ml intel -Inspector
+        module list
 	
 
 Try listing modules
