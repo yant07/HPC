@@ -192,5 +192,28 @@ Recover your MODULEPATH
 If LMOD_DEFAULT_MODULEPATH is messed up then run ``source /etc/profile``
 
 
+What is module
+--------------
+
+Is module a Linux command?
+
+.. code::
+
+        module is a function
+        module ()
+        {
+            eval $($LMOD_CMD bash "$@");
+            [ $? = 0 ] && eval $(${LMOD_SETTARG_CMD:-:} -s sh)
+        }
+
+
+Nope, module is a wrapper function that pass argument to bash. There is no binary called ``module``.
+
+Try running 
+
+.. code::
+
+        which module
+
 
    
