@@ -20,7 +20,10 @@ ml --force purge
 # gcc and pgi should automatically swap
 ml purge
 ml gcc
+echo $CC
 ml pgi
+echo $CC
+
 
 #pushenv example
 ml purge
@@ -37,9 +40,10 @@ echo $CC
 echo $CXX
 echo $FC
 
+# load atleast example
 ml purge
-ml pgi
-echo $CC
-ml gcc
-echo $CC
+ml openmpi/2.1.0-gcc-6.x
 
+# group module example
+ml purge
+ml Go/1.9
