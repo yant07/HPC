@@ -1,4 +1,4 @@
-help([[module e help]])
+help([[LmodMessage example]])
 
 -- load module only if it is not loaded
 if not isloaded("a") then

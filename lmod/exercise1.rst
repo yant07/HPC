@@ -1,9 +1,9 @@
 Exercise 1
 ==========
 
-Approx Time: 7 mins
+Approx Time: 10 mins
 
-View module all modules in system
+View all modules in system
 
 .. code::
 
@@ -20,25 +20,25 @@ Try loading a module
 
 .. code::
 
-	module purge
-	module load intel
+        module purge
+        module load intel
         module list
 
-Try loading modules 
+Try loading multiple modules
 
 .. code::
 
-	module purge
-	module load Go 
-	module load Anaconda2
+        module purge
+        module load Go
+        module load Anaconda2
         module list
 
-Try loading same two modules in one line
+Try loading two modules in one command
 
 .. code::
 
-	module purge
-	module load Go Anaconda2
+        module purge
+        module load Go Anaconda2
         module list
 
 
@@ -46,10 +46,10 @@ Try swaping one module with another
 
 .. code::
 
-	module purge
-	module load Go Anaconda2
+        module purge
+        module load Go Anaconda2
         module list
-	module swap Go Inspector
+        module swap Go Inspector
         module list
 
 
@@ -70,43 +70,73 @@ Try loading a module and unload another
 
 .. code::
 
-	module purge
-	module load Go Inspector
-	module load intel
+        module purge
+        module load Go Inspector
+        module load intel
         module list
-	module unload Inspector
+        module unload Inspector
         module list
 
 
 
-Try loading intel and Inspector in the same line
+Try loading and unloading a module in one command.
 
 .. code::
 
-	module purge
-	module load Go Inspector
-	module load intel unload Inspector
+        module purge
+        module load Go Inspector
+        module load intel unload Inspector
 
 You should get an error, try this
 
 .. code::
 
-	module purge
-	module load intel Inspector
-	ml intel -Inspector
+        module purge
+        module load Go Inspector
+        ml intel -Inspector
         module list
-	
 
-Try listing modules
+Tired of typing ``module``, use the ``ml`` command which operates on module files similar to ``module`` command though
+there are slight differences that may be worth noting
 
+Try listing modules using both commands
 
 .. code::
-        
+
       module purge
-      ml intel
+      module load intel
       ml
       module list
 
-      
+
+Try loading modules
+
+.. code::
+
+        module purge
+        module load intel
+        ml Go
+
+Try purging modules
+
+.. code::
+
+        ml intel
+        ml
+        module purge
+        ml
+        ml intel
+        ml purge
+        ml
+
+Try loading & unloading multiple modules in one command
+
+.. code::
+
+        ml purge
+        ml GCC Go Java Anaconda3
+        ml intel Anaconda2 -Anaconda3 -Go
+
+
 
 

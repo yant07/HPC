@@ -1,2 +1,3 @@
-help([[dummy module]])
+help([[This is a dummy module]])
+
 

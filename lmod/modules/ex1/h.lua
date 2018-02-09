@@ -1,19 +1,18 @@
-help([[module e help]])
+help([[Introspection function and executing shell example]])
 
-local name = myModuleFullName()
+-- Lmod introspection functions
+local name = myModuleName()
+local fname = myModuleFullName()
+local version = myModuleVersion()
+local filename = myFileName()
+local shell = myShellName()
 
--- load module only if it is not loaded
-if not isloaded("a") then
-	LmodMessage("Loading module a")
-	load("a")
-end
+LmodMessage("module name:" .. name)
+LmodMessage("Full Module Name:" .. fname)
+LmodMessage("version:" .. version)
+LmodMessage("filename:" .. filename)
+LmodMessage("shell:" .. shell)
 
-if not isloaded("b") then
-	LmodMessage("Loading module b")
-	load("b")
-end
-
-if mode() == "unload" then
-	LmodMessage("Unloading module ", name)
-end
-
+-- running command upon load a module
+execute{cmd="hostname",modeA={"load"}}
+execute{cmd="whoami",modeA={"load"}}

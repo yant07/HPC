@@ -1,6 +1,8 @@
 Exercise 2
 ==========
 
+Approx Time: 12mins
+
 Get help section for a module
 
 .. code::
@@ -15,7 +17,7 @@ Get whatis section of module
    module whatis Anaconda2
    ml whatis Anaconda2
 
-Show module content. This will show content of module file 
+Show module content. This will show content of module file
 
 .. code::
 
@@ -48,9 +50,10 @@ We have set module families at Compiler and MPI level see what happens when you 
    ml intel/2017.01
    ml
    ml OpenMPI
-   
 
-Lmod sets environment variables ``LMOD_FAMILY_<family-name>`` when loading family modules
+
+Lmod sets environment variables ``LMOD_FAMILY_<family-name>`` when loading family modules. Run the following
+command while loading ``GCC``, ``OpenMPI``, ``intel`` and see how the value changes
 
 .. code::
 
@@ -60,7 +63,7 @@ Module collections
 ------------------
 
 If you want to reuse a set of modules try using module collections. Module collections
-consist of a set of modules that can be loaded without having to load them manually. 
+consist of a set of modules that can be loaded without having to load them manually.
 
 Let's load a few modules and save them
 
@@ -100,7 +103,7 @@ To view modules in a collection you can run ``ml describe <collection-name>``
 
 .. code::
 
-        ml describe 
+        ml describe
         ml describe R
 
 To restore a collection in your user shell use ``ml restore <collection-name>``
@@ -116,7 +119,7 @@ Searching for modules with module spider
 --------------------------------------------
 
 
-Lmod can search for modules based on MODULEPATH environment and it can be used 
+Lmod can search for modules based on MODULEPATH environment and it can be used
 to search all modules in all module trees.
 
 Run ``module spider`` this will result in a long output
@@ -131,7 +134,7 @@ To search a specific module
 
    module spider GCC
 
-To view a specific module version 
+To view a specific module version
 
 .. code::
 
@@ -141,8 +144,8 @@ Hidden Modules
 --------------
 
 Hidden modules in Lmod are precedded by a "." follwed by the name of module. Lmod
-treats these modules hidden when you run ``module av``. Hidden modules can be 
-useful to hide modules that you don't want to see 
+treats these modules hidden when you run ``module av``. Hidden modules can be
+useful to hide modules that you don't want to see
 
 To view hidden modules with ``module av``
 
@@ -159,7 +162,8 @@ To view hidden modules with ``module spider``
 
 
 
-To view Lmod configuration
+To view Lmod configuration. Pay close attention to Lmod Properties Table as we will cover this
+in next exercise
 
 .. code::
 
@@ -182,8 +186,8 @@ all module trees. There is a default MODULEPATH called ``LMOD_DEFAULT_MODULEPATH
 .. code::
 
    echo $LMOD_DEFAULT_MODULEPATH
- 
-Recover your MODULEPATH 
+
+Recover your MODULEPATH
 
 .. code::
 
@@ -209,11 +213,11 @@ Is module a Linux command?
 
 Nope, module is a wrapper function that pass argument to bash. There is no binary called ``module``.
 
-Try running 
+Try running
 
 .. code::
 
         which module
 
 
-   
+
