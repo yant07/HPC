@@ -1,7 +1,7 @@
 Exercise 2
 ==========
 
-Approx Time: 12mins
+Approx Time: 15 mins
 
 Get help section for a module
 
@@ -151,14 +151,15 @@ To view hidden modules with ``module av``
 
 .. code::
 
-        module av --show-hidden
+        module --show_hidden av 
+        ml --show_hidden av
 
 To view hidden modules with ``module spider``
 
 .. code::
 
         ml spider flex
-        ml spider --show-hidden flex
+        ml spider --show_hidden flex
 
 
 
@@ -170,7 +171,72 @@ in next exercise
    module --config
 
 
-Try this
+If you want a minimal output from module subcommands ``avail``, ``spider``, ``list`` or ``savelist``  you 
+can use ``-t`` flag for terse output
+
+
+.. code::
+
+   ml -t
+   ml av -t
+   ml spider -t
+   ml savelist -t
+
+If you want to search for text in the modulefile try ``module key``
+
+.. code::
+
+   module key GCC
+
+If you have multiple versions of an application module and not sure what is the 
+default option you can do that as follows
+
+.. code::
+
+   module av <name> -d
+
+Lets try a few examples
+
+
+.. code::
+
+   ml av GCC
+   ml av GCC -d
+
+   ml av gaussian
+   ml av gaussian -d
+
+
+If you want to add new module trees into your shell environment you can do that
+as well
+
+
+.. code::
+
+   module use /nfs/grid/software/RHEL6/chemistry
+   ml av
+
+By default module use will prepend the path into variable MODULEPATH as you may 
+notice if you run 
+
+.. code::
+
+   echo $MODULEPATH
+
+module will search each module tree in the order specified by MODULEPATH, there 
+may be an instance where two modules have exact same module version (i.e ``gcc/4.9`` found in 2 trees),
+in that case Lmod will load the module from the 1st module tree in MODULEPATH value
+
+You can also append module tree to MODULEPATH
+
+.. code::
+
+   module use -a /nfs/grid/software/general
+   echo $MODULEPATH
+   ml av
+
+
+Let's try the following
 
 .. code::
 
@@ -181,19 +247,16 @@ Try this
 
 
 MODULEPATH stores a set of module trees that is used by ``module`` command to view
-all module trees. There is a default MODULEPATH called ``LMOD_DEFAULT_MODULEPATH``
+all module trees. 
+
+To recover your Lmod setting you can source /etc/profile to get it back, assuming
+Lmod is installed as system package
+
 
 .. code::
+        
+   source /etc/profile
 
-   echo $LMOD_DEFAULT_MODULEPATH
-
-Recover your MODULEPATH
-
-.. code::
-
-   export MODULEPATH=$LMOD_DEFAULT_MODULEPATH
-
-If LMOD_DEFAULT_MODULEPATH is messed up then run ``source /etc/profile``
 
 
 What is module

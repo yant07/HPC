@@ -3,6 +3,14 @@ modulefile exercise 2
 
 Approx Time: 12 mins
 
+
+Please source the following file before proceeding
+
+.. code::
+
+      source setup.sh
+
+
 Example: Translate modulefile from TCL to LUA
 
 .. code::

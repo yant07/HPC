@@ -1,7 +1,15 @@
 modulefile exercise 1
 =====================
 
+
 Approx Time: 10mins
+
+Please source the following file before proceeding
+
+.. code::
+
+   source setup.sh
+
 
 In this exercise, check out each modulefiles as you proceed with the instructions to
 see how ``module`` command interact with modulefiles
